@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'animate.min.css')}" type="text/css">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-checkbox.css')}" type="text/css">
- <link rel="stylesheet" href="${resource(dir: 'css', file: 'minoral.css')}" type="text/css">
+ <link rel="stylesheet" href="${resource(dir: 'css', file: 'webkiosk.css')}" type="text/css">
 
 </head>
 <body class="brownish-scheme">
@@ -109,7 +109,7 @@
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
 <script src="../js/plugins/jquery.nicescroll.min.js"></script>
 <script src="../js/plugins/blockui/jquery.blockUI.js"></script>
-<script src="../js/minoral.min.js"></script>
+<script src="../js/webkiosk.min.js"></script>
 
 <script>
     $(function(){

@@ -51,7 +51,6 @@ class LoginController {
 
         String view = 'auth'
         String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-        println(""+request.contextPath+"---"+config.apf.filterProcessesUrl)
 
         render view: view, model: [postUrl            : postUrl,
                                    rememberMeParameter: config.rememberMe.parameter]
@@ -92,7 +91,6 @@ class LoginController {
     def authfail = {
 
         def username = session[UsernamePasswordAuthenticationFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
-        println("session" + session)
         String msg = ''
         def exception = session[WebAttributes.AUTHENTICATION_EXCEPTION]
         if (exception) {

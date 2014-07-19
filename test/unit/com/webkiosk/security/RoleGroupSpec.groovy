@@ -1,14 +1,13 @@
-package com.webkiosk
+package com.webkiosk.security
 
-import com.webkiosk.user.Student
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Student)
-class StudentSpec extends Specification {
+@TestFor(RoleGroup)
+class RoleGroupSpec extends Specification {
 
     def setup() {
     }

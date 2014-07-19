@@ -81,11 +81,11 @@ grails.web.disable.multipart=false
 grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
-grails.hibernate.cache.queries = false
+grails.hibernate.cache.queries = true
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.webkiosk.security.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.marketshare.webkiosk.UserRole'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.webkiosk.security.UserRole'
 grails.plugins.springsecurity.authority.className = 'com.webkiosk.security.Role'
 grails.plugins.springsecurity.securityConfigType = 'InterceptUrlMap'
 grails.plugins.springsecurity.rejectIfNoRule = true
@@ -98,8 +98,14 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/css/**':     	  			['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/img/**':    	 			['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/login/**':     			['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/logout/**':    			['IS_AUTHENTICATED_ANONYMOUSLY']
-        ]
+        '/logout/**':    			['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/api/**':                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/admin/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+        '/batch/**' :               ['IS_AUTHENTICATED_FULLY'],
+        '/standard/**' :               ['IS_AUTHENTICATED_FULLY'],
+        '/section/**' :               ['IS_AUTHENTICATED_FULLY']
+
+]
 
 environments {
     development {
@@ -113,11 +119,10 @@ environments {
 
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console appender:
+//    Example of changing the log pattern for the default console appender:
     //
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -132,12 +137,7 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
-// Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.chunky.webkiosk.security.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.chunky.webkiosk.security.UserRole'
-grails.plugins.springsecurity.authority.className = 'com.chunky.webkiosk.security.Role'
 
-// Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.webkiosk.security.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.webkiosk.security.UserRole'
-grails.plugins.springsecurity.authority.className = 'com.webkiosk.security.Role'
+//application properties
+
+user.profile.pic.path="/profile/user/"

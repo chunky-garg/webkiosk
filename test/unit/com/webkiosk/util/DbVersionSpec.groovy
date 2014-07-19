@@ -1,14 +1,13 @@
-package com.webkiosk
+package com.webkiosk.util
 
-import com.webkiosk.user.Student
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Student)
-class StudentSpec extends Specification {
+@TestFor(DbVersion)
+class DbVersionSpec extends Specification {
 
     def setup() {
     }

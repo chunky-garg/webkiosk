@@ -5,7 +5,7 @@ grails.project.test.reports.dir = "target/test-reports"
 grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
-//grails.project.war.file = "target/${appName}-${appVersion}.war"
+grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.fork = [
     // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
@@ -55,9 +55,20 @@ grails.project.dependency.resolution = {
         // plugins for the build system only
         build ":tomcat:7.0.42",
         // plugins for the compile step
-        compile(':spring-security-core:1.2.7.3',
-        ":scaffolding:2.0.0",
-        ':cache:1.1.1')
+        compile(
+        ':cache:1.1.1',
+        ':csv:0.3',
+        ':excel-import:1.0.0',
+        ':grails-template-engine:0.2.1',
+        ':grails-ui:1.2.3',
+        ':hibernate:3.6.10.1',
+        ':joda-time:1.5',
+        ':navigation:1.1.1',
+        ':quartz:0.4.2',
+        ':rest:0.7',
+        ':spring-security-core:1.2.7.3',
+        ":scaffolding:2.0.0"
+        )
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.1" // or ":hibernate4:4.1.11.1"

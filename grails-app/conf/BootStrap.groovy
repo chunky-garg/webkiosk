@@ -1,21 +1,29 @@
 import com.webkiosk.security.Role
 import com.webkiosk.security.User
 import com.webkiosk.security.UserRole
+import grails.util.Holders
+import org.apache.log4j.LogManager
+import org.apache.log4j.PropertyConfigurator
+import org.codehaus.groovy.grails.commons.cfg.ConfigurationHelper
 
 class BootStrap {
 
     def springSecurityService
+    def grailsApplication
+    def dataMigrationService
 
     def init = { servletContext ->
 
-        println("starting app")
-
-        // Add roles for user
-//        Role r1 = new Role(authority:"ROLE_MS_ADMIN", description:"Administrator access").save(failOnError: true)
-//        Role r2 = new Role(authority:"ROLE_CLIENT_USER", description:"User access").save(failOnError: true)
+//        File configFile = new File(Holders.config.application.configfile);
 //
-//        User u1 = new User(username:'admin', password:springSecurityService.encodePassword('1'),  firstName:'Admin', lastName:'User', enabled:true).save(failOnError: true)
-//        UserRole.create(u1, r1);
+//        if (configFile.exists()) {
+//            // Reset log manager
+//            LogManager.resetConfiguration()
+//            PropertyConfigurator.configure(configFile.toURI().toURL())
+//            ConfigurationHelper.initConfig(grailsApplication.config)
+//        }
+
+        dataMigrationService.migrate()
     }
     def destroy = {
     }

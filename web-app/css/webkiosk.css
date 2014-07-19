@@ -147,6 +147,33 @@ body {
             color: rgba(125, 114, 100, 0.5); }
     body.brownish-scheme #content {
       background-color: rgba(125, 114, 100, 0.05); }
+
+    .many-to-one {
+    -webkit-appearance: none !important;
+        color: rgba(113, 113, 113, 0.5) !important;
+        outline: 0;
+        height: 16px;
+        padding: 6px 11px !important;
+        line-height: 22px;
+        font-size: 14px;
+        vertical-align: top;
+        background-color: #fafafa;
+        min-height: 37px;
+        filter: none !important;
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+        border-radius: 0;
+        border: 1px solid #ececec;
+        -webkit-transition: all .2s linear;
+        /* Safari */
+        transition: all .2s linear; }
+
+
     body.brownish-scheme .tile.cornered:before {
       border-top-color: #f8f7f7;
       border-right-color: #f8f7f7; }

@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
-	<head>
-    <title>  <g:layoutTitle/></title>
+<%--
+  Created by IntelliJ IDEA.
+  User: chunkygarg
+  Date: 19/07/14
+  Time: 1:32 AM
+--%>
+
+<%@ page contentType="text/html;charset=UTF-8" %>
+<html>
+<head>
 
     <link rel="icon" type="image/x-ico" href="${resource(dir: 'images', file: 'favicon.ico')}" />
     <!-- Bootstrap -->
@@ -32,21 +34,22 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     %{--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>--}%
 
-    <script src="../js/plugins/jquery.nicescroll.min.js"></script>
+    <script src="js/plugins/jquery.nicescroll.min.js"></script>
 
-    <script src="../js/plugins/blockui/jquery.blockUI.js"></script>
-    <script src="../js/webkiosk.min.js"></script>
+    <script src="js/plugins/blockui/jquery.blockUI.js"></script>
+    <script src="js/webkiosk.min.js"></script>
 
-    <g:layoutHead/>
-    <r:layoutResources />
 
 </head>
-	<body class="brownish-scheme">
-    <div id="wrap">
-    <div class="row">
+
+
+
+<body>
+
+
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 
@@ -634,17 +637,6 @@
 
 
     </div>
-                <div class="main">
-
-                    <g:layoutBody/>
-                </div>
-
-                <div class="footer" role="contentinfo"></div>
-                <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"></g:message></div>
-                <g:javascript library="application"/>
-                <g:javascript library="application"/>
-            </div>
-         </div>
-    <r:layoutResources />
-	</body>
+    <!-- Fixed navbar end -->
+</body>
 </html>

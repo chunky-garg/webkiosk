@@ -9,7 +9,7 @@ class UrlMappings {
         }
 
         "/"(controller: 'dashboard') {
-            action:"index"
+            action=[GET:"index"]
         }
 
         "500"(view:'/error')

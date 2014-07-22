@@ -14,4 +14,12 @@ class Batch {
     ]
     static constraints = {
     }
+
+    public String toString() {
+
+        if(!name) {
+            return standard + " " + section + " - " + year
+        }
+        return name
+    }
 }

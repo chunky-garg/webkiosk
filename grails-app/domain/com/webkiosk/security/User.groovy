@@ -43,7 +43,8 @@ class User {
     }
 
     static transients =[
-        'tzDpPath'
+        'tzDpPath',
+         'authorities'
     ]
 
     Set<Role> getAuthorities() {
@@ -62,6 +63,13 @@ class User {
 
     protected void encodePassword() {
         password = springSecurityService.encodePassword(password)
+    }
+
+    public boolean isPrincipalAdmin() {
+        if(authorities.any{it == Role.findByAuthority("ROLE_ADMIN_PRINCIPAL")}) {
+            return true
+        }
+        return  false
     }
 
     public String getTzDpPath() {

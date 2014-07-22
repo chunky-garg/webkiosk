@@ -8,7 +8,6 @@ class DashboardController {
     def index() {
 
     User user = request.user
-        println("user" + user)
     return [userInstance:user]
 
     }

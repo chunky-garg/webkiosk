@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'webkiosk.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'chosen.min.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'chosen-bootstrap.css')}" type="text/css">
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'dataTables.bootstrap.css')}" type="text/css">
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
@@ -32,13 +33,12 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script  rel="script"  src="${resource(dir: 'js', file: 'bootstrap.min.js')}" type="text/javascript"></script>
+    <script  rel="script"  src="${resource(dir: 'js/plugins', file: 'jquery.nicescroll.min.js')}" type="text/javascript"></script>
+    <script  rel="script"  src="${resource(dir: 'js', file: 'webkiosk.min.js')}" type="text/javascript"></script>
+    <script  rel="script"  src="${resource(dir: 'js/plugins/blockui', file: 'jquery.blockUI.js')}" type="text/javascript"></script>
     %{--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>--}%
-
-    <script src="../js/plugins/jquery.nicescroll.min.js"></script>
-
-    <script src="../js/plugins/blockui/jquery.blockUI.js"></script>
-    <script src="../js/webkiosk.min.js"></script>
+    %{--<script rel="script" src="${resource(dir: 'js/custom', file: 'table.js')}" type="text/javascript"/>--}%
 
     <g:layoutHead/>
     <r:layoutResources />
@@ -47,6 +47,7 @@
 	<body class="brownish-scheme">
     <div id="wrap">
     <div class="row">
+
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 
@@ -247,7 +248,7 @@
                     <li>
                         <a class="cyan" href="#">
                             <div class="profile-photo">
-                                <img src="images/ici-avatar.jpg" alt />
+                                <img src="../images/ici-avatar.jpg" alt />
                             </div>
                             <div class="message-info">
                                 <span class="sender">Ing. Imrich Kamarel</span>
@@ -260,7 +261,7 @@
                     <li>
                         <a class="green" href="#">
                             <div class="profile-photo">
-                                <img src="images/arnold-avatar.jpg" alt />
+                                <img src="../images/arnold-avatar.jpg" alt />
                             </div>
                             <div class="message-info">
                                 <span class="sender">Arnold Karlsberg</span>
@@ -628,12 +629,38 @@
 
     </div>
     <!--/.nav-collapse -->
-
-
-
-
-
     </div>
+
+    <div tabindex="5000" style="overflow: hidden; padding-left: 265px;" id="content" class="col-md-12">
+
+        <!-- breadcrumbs -->
+    <div class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="index.html">Dashboard</a></li>
+            <li class="active">Overview</li>
+        </ol>
+    </div>
+    <!-- /breadcrumbs -->
+    <!-- submenu -->
+    <div class="submenu">
+        <h1>Dashboard</h1>
+        <div class="collapsed">
+            <a href="#" id="submenutoggle"><h1>Dashboard <i class="fa fa-bars"></i></h1></a>
+        </div>
+        <ul class="nav nav-tabs">
+            <sec:ifAllGranted roles="ROLE_ADMIN_PRINCIPAL">
+                <nav:eachItem group="meta" var="item">
+                    <li  class="${item.active ? 'active' : ''}">
+                        <g:link controller="${item.controller}" action="${item.action}"><g:message code="${item.title}"/></g:link>
+                    </li>
+                </nav:eachItem>
+            </sec:ifAllGranted>
+        </ul>
+    </div>
+    <!-- /submenu -->
+
+
                 <div class="main">
 
                     <g:layoutBody/>
@@ -645,6 +672,7 @@
                 <g:javascript library="application"/>
             </div>
          </div>
+    </div>
     <r:layoutResources />
 	</body>
 </html>

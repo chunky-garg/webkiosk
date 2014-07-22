@@ -8,4 +8,8 @@ class Standard {
     static constraints = {
         code unique: true, blank:false
     }
+
+    public String toString() {
+        return code + "-" + name
+    }
 }

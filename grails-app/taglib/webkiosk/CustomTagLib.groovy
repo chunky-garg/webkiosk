@@ -63,7 +63,7 @@ class CustomTagLib {
         writer<<'<div id=\"drillDownDataTable_info\" class=\"dataTables_info\">'
 
 
-        writer<<'showing '+ (offset?(offset-1)*max +1 : 1 )+" to " + (((offset+1)*max > total)?total: (offset*max )+ max) +' of ' + total + ' entries'
+        writer<<'showing '+ (total?(offset +1) : 0 )+" to " + (((offset+max) > total)?total: (offset +max )) +' of ' + total + ' entries'
         writer<<'</div> </div>'
 
         writer<<'<div class=\"col-md-4\">'

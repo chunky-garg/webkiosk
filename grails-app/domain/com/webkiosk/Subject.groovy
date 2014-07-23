@@ -9,4 +9,8 @@ class Subject {
         name blank:false, nullable: false
         code blank:false, nullable:false, unique: true
     }
+
+    public String toString() {
+        return name
+    }
 }

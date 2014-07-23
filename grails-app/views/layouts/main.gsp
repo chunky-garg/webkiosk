@@ -656,6 +656,14 @@
                     </li>
                 </nav:eachItem>
             </sec:ifAllGranted>
+
+            <sec:ifAllGranted roles="ROLE_FACULTY_ADMIN">
+            <nav:eachItem group="faculty" var="item">
+                <li  class="${item.active ? 'active' : ''}">
+                    <g:link controller="${item.controller}" action="${item.action}"><g:message code="${item.title}"/></g:link>
+                </li>
+            </nav:eachItem>
+            </sec:ifAllGranted>
         </ul>
     </div>
     <!-- /submenu -->

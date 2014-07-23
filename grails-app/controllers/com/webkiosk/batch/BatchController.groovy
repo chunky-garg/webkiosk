@@ -1,12 +1,14 @@
 package com.webkiosk.batch
 
-
+import com.webkiosk.ErrorController
+import com.webkiosk.exceptions.NoAccessException
+import com.webkiosk.security.User
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class BatchController {
+class BatchController extends ErrorController {
 
 //    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -19,6 +21,15 @@ class BatchController {
     ]
 
     def scaffold=true
+
+    def beforeInterceptor = {
+        User user = request.user
+
+        if(!user.isPrincipalAdmin()) {
+            error(new NoAccessException())
+            return false
+        }
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

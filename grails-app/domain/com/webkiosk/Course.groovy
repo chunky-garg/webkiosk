@@ -8,8 +8,11 @@ class Course {
            batch:Batch,
            subject:Subject
     ]
-    String s = (String)
 
     static constraints = {
+    }
+
+    public String toString() {
+        return ("" +subject + " : " + batch)
     }
 }

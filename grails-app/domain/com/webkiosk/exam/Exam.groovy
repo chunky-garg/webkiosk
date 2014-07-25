@@ -1,12 +1,11 @@
 package com.webkiosk.exam
 
 import com.webkiosk.Course
-import com.webkiosk.Subject
-import com.webkiosk.batch.Batch
 
 class Exam {
 
-    String ExamType
+    String examType
+
     double maxMarks
     double passMarks
 

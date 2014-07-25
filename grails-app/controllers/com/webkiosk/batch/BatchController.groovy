@@ -1,39 +1,17 @@
 package com.webkiosk.batch
 
-import com.webkiosk.ErrorController
-import com.webkiosk.exceptions.NoAccessException
-import com.webkiosk.security.User
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class BatchController extends ErrorController {
+class BatchController {
 
-//    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    static navigation = [
-            group:'meta',
-            order:1,
-            action:'index',
-            title: "navigation.metadata.batch",
-            isVisible: { springSecurityService.isLoggedIn()}
-    ]
-
-    def scaffold=true
-
-    def beforeInterceptor = {
-        User user = request.user
-
-        if(!user.isPrincipalAdmin()) {
-            error(new NoAccessException())
-            return false
-        }
-    }
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Batch.list(params), model:[batchInstanceCount: Batch.count()]
+        respond Batch.list(params), model: [batchInstanceCount: Batch.count()]
     }
 
     def show(Batch batchInstance) {
@@ -41,7 +19,7 @@ class BatchController extends ErrorController {
     }
 
     def create() {
-        respond new Batch(params), model: [userInstance:request.user]
+        respond new Batch(params)
     }
 
     @Transactional
@@ -52,11 +30,11 @@ class BatchController extends ErrorController {
         }
 
         if (batchInstance.hasErrors()) {
-            respond batchInstance.errors, view:'create'
+            respond batchInstance.errors, view: 'create'
             return
         }
 
-        batchInstance.save flush:true
+        batchInstance.save flush: true
 
         request.withFormat {
             form {
@@ -79,18 +57,18 @@ class BatchController extends ErrorController {
         }
 
         if (batchInstance.hasErrors()) {
-            respond batchInstance.errors, view:'edit'
+            respond batchInstance.errors, view: 'edit'
             return
         }
 
-        batchInstance.save flush:true
+        batchInstance.save flush: true
 
         request.withFormat {
             form {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Batch.label', default: 'Batch'), batchInstance.id])
                 redirect batchInstance
             }
-            '*'{ respond batchInstance, [status: OK] }
+            '*' { respond batchInstance, [status: OK] }
         }
     }
 
@@ -102,14 +80,14 @@ class BatchController extends ErrorController {
             return
         }
 
-        batchInstance.delete flush:true
+        batchInstance.delete flush: true
 
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Batch.label', default: 'Batch'), batchInstance.id])
-                redirect action:"index", method:"GET"
+                redirect action: "index", method: "GET"
             }
-            '*'{ render status: NO_CONTENT }
+            '*' { render status: NO_CONTENT }
         }
     }
 
@@ -119,7 +97,7 @@ class BatchController extends ErrorController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'batchInstance.label', default: 'Batch'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*'{ render status: NOT_FOUND }
+            '*' { render status: NOT_FOUND }
         }
     }
 }

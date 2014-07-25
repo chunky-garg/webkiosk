@@ -38,6 +38,7 @@ class ExamController {
             return
         }
 
+        println("Exam trype" + examInstance.getExamType())
         if (examInstance.hasErrors()) {
             respond examInstance.errors, view:'create'
             return

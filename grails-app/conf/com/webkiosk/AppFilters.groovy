@@ -6,41 +6,36 @@ import com.webkiosk.security.User
 
 class AppFilters {
 
+    def springSecurityService
+
     def filters = {
+
         all(controller:'*', action:'*') {
             before = {
                 //TODO check for login controller
-                if(!request.userPrincipal && !actionName.equals('auth') && !controllerName.equals('login')) {
+                def user = springSecurityService.principal
+
+                if((user instanceof String) && !actionName.equals('auth') && !controllerName.equals('login')) {
                     redirect(controller: 'login', action:'auth')
                     return false
-                } else {
-                    //do nothing
                 }
 
-                String username = request.userPrincipal?.getName()
+                String username = springSecurityService.principal.getUsername()
                 if(username) {
-                User user = User.findByUsername(username)
+                 user = User.findByUsername(username)
                     request.user = user
                 } else {
 
                 }
-
-
-
-
             }
             after = { Map model ->
                 if(model) {
                     model['userInstance'] = request.user
                 }
-
+                println("model:" + model)
             }
             afterView = { Exception e ->
-                println("After view exception" + actionName)
-                print("user" + request.user)
-//                if(e instanceof NoAccessException ) {
-//                    render (view:("/layouts/error/403"), model: [userInstance:request.user])
-//                }
+                e?.printStackTrace()
 
             }
         }

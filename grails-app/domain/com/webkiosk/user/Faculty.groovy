@@ -1,6 +1,7 @@
 package com.webkiosk.user
 
 import com.webkiosk.Course
+import com.webkiosk.Subject
 import com.webkiosk.security.User
 
 class Faculty {
@@ -9,7 +10,8 @@ class Faculty {
             user:User
     ]
     static hasMany = [
-            courses:Course
+            courses:Course,
+            subjects:Subject
     ]
     static constraints = {
     }

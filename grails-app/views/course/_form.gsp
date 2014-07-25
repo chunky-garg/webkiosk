@@ -1,4 +1,4 @@
-<%@ page import="com.webkiosk.Course" %>
+<%@ page import="com.webkiosk.batch.Batch; com.webkiosk.batch.Batches; com.webkiosk.Course" %>
 
 
 
@@ -8,7 +8,7 @@
 		<span class="required-indicator">*</span>
 	</label>
     <div class="col-sm-6">
-	<g:select id="batch" name="batch.id" from="${com.webkiosk.batch.Batch.list()}" optionKey="id" required="" value="${courseInstance?.batch?.id}" class="many-to-one"/>
+	<g:select id="batch" name="batch.id" from="${Batch.list()}" optionKey="id" required="" value="${courseInstance?.batch?.id}" class="many-to-one"/>
     </div>
 </div>
 

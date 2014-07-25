@@ -12,7 +12,11 @@ class UrlMappings {
             action=[GET:"index"]
         }
 
-        "500"(view:'/error')
+        "500"(view:'/error/error')
+
+//        "/result/uploadFile"(controller: 'result') {
+//            action=[POST:'uploadFile']
+//        }
 
 	}
 }

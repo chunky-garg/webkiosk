@@ -38,7 +38,7 @@
     <script  rel="script"  src="${resource(dir: 'js', file: 'webkiosk.min.js')}" type="text/javascript"></script>
     <script  rel="script"  src="${resource(dir: 'js/plugins/blockui', file: 'jquery.blockUI.js')}" type="text/javascript"></script>
     %{--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>--}%
-    %{--<script rel="script" src="${resource(dir: 'js/custom', file: 'table.js')}" type="text/javascript"/>--}%
+
 
     <g:layoutHead/>
     <r:layoutResources />
@@ -408,53 +408,33 @@
             </div>
         </div>
     </li>
-    <li class="dropdown open">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Dashboard">
+    <li class="${controllerName == 'dashboard'?'active':''}">
+        <a href="#"  title="Dashboard">
             <i class="fa fa-dashboard">
                 <span class="overlay-label red"></span>
             </i>
-            Dashboard <b class="fa fa-angle-left dropdown-arrow"></b>
+            Dashboard
         </a>
-        <ul class="dropdown-menu">
-            <li class="active">
-                <a href="index.html" title="Overview">
-                    <i class="fa fa-eye"><span class="overlay-label red80"></span></i>
-                    Overview
-                </a>
-            </li>
-            <li>
-                <a href="mail.html" title="Inbox">
-                    <i class="fa fa-envelope"><span class="overlay-label red60"></span></i>
-                    Inbox
-                </a>
-            </li>
-        </ul>
     </li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Forms">
+    <li class="dropdown ${controllerName == 'result'?'active open':''}">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Examination">
             <i class="fa fa-list">
                 <span class="overlay-label green"></span>
             </i>
-            Forms <b class="fa fa-angle-left dropdown-arrow"></b>
+            Results <b class="fa fa-angle-left dropdown-arrow"></b>
         </a>
-        <ul class="dropdown-menu">
-            <li>
-                <a href="form-elements.html" title="Common Elements">
+        <ul class="dropdown-menu active">
+            <li  class="${actionName == 'view'?'active':''}">
+            <g:link title="View" controller="result" action="view">
                     <i class="fa fa-thumb-tack"><span class="overlay-label green80"></span></i>
-                    Common Elements
-                </a>
+                    View
+            </g:link>
             </li>
-            <li>
-                <a href="validation-elements.html" title="Validation">
+            <li  class="${actionName == 'upload'?'active':''}">
+                <g:link title="Upload" controller="result" action="upload">
                     <i class="fa fa-check-square"><span class="overlay-label green60"></span></i>
-                    Validation
-                </a>
-            </li>
-            <li>
-                <a href="form-wizard.html"  title="Form Wizard">
-                    <i class="fa fa-shield"><span class="overlay-label green40"></span></i>
-                    Form Wizard
-                </a>
+                    Upload
+                </g:link>
             </li>
         </ul>
     </li>
@@ -463,7 +443,7 @@
             <i class="fa fa-pencil">
                 <span class="overlay-label amethyst"></span>
             </i>
-            Interface <b class="fa fa-angle-left dropdown-arrow"></b>
+            Examination <b class="fa fa-angle-left dropdown-arrow"></b>
         </a>
         <ul class="dropdown-menu">
             <li>
@@ -488,56 +468,29 @@
     </li>
     <li>
         <a href="buttons.html" title="Buttons & Icons">
-            <i class="fa fa-tint">
+            <i class="fa fa-calendar">
                 <span class="overlay-label orange"></span>
             </i>
-            Buttons & Icons
+            Calendar
         </a>
     </li>
+
     <li>
-        <a href="grid.html" title="Grid Layout">
-            <i class="fa fa-th">
-                <span class="overlay-label cyan"></span>
-            </i>
-            Grid Layout
+        <a href="login.html" title="Login Page">
+            <i class="fa fa-user"><span class="overlay-label drank80"></span></i>
+            Planner
         </a>
     </li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Tables">
-            <i class="fa fa-th-large">
-                <span class="overlay-label greensea"></span>
-            </i>
-            Tables <b class="fa fa-angle-left dropdown-arrow"></b>
-        </a>
-        <ul class="dropdown-menu">
-            <li>
-                <a href="tables.html" title="Bootstrap Tables">
-                    <i class="fa fa-puzzle-piece"><span class="overlay-label greensea80"></span></i>
-                    Bootstrap Tables
-                </a>
-            </li>
-            <li>
-                <a href="datatables.html" title="DataTables">
-                    <i class="fa fa-lightbulb-o"><span class="overlay-label greensea60"></span></i>
-                    DataTables
-                </a>
-            </li>
-        </ul>
-    </li>
+
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Example Pages">
-            <i class="fa fa-desktop">
+            <i class="fa fa-user">
                 <span class="overlay-label drank"></span>
             </i>
-            Example Pages <b class="fa fa-angle-left dropdown-arrow"></b>
+            Profile <b class="fa fa-angle-left dropdown-arrow"></b>
         </a>
         <ul class="dropdown-menu">
-            <li>
-                <a href="login.html" title="Login Page">
-                    <i class="fa fa-user"><span class="overlay-label drank80"></span></i>
-                    Login Page
-                </a>
-            </li>
+
             <li>
                 <a href="calendar.html" title="Calendar">
                     <i class="fa fa-calendar"><span class="overlay-label drank60"></span></i>
@@ -585,7 +538,7 @@
             <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown-submenu" title="Maps">
                     <i class="fa fa-map-marker"><span class="overlay-label drank20"></span></i>
-                    Maps <b class="fa fa-angle-left dropdown-arrow"></b>
+                    Profile <b class="fa fa-angle-left dropdown-arrow"></b>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
@@ -606,10 +559,10 @@
     </li>
     <li>
         <a href="widgets.html" title="Widgets">
-            <i class="fa fa-play-circle">
+            <i class="fa fa-envelope">
                 <span class="overlay-label hotpink"></span>
             </i>
-            Widgets
+            Mail
         </a>
     </li>
     <li>
@@ -617,7 +570,14 @@
             <i class="fa fa-bar-chart-o">
                 <span class="overlay-label dutch"></span>
             </i>
-            Charts & Graphs
+            Analytics
+        </a>
+    </li>
+
+    <li>
+        <a href="datatables.html" title="DataTables">
+            <i class="fa fa-lightbulb-o"><span class="overlay-label greensea60"></span></i>
+            Ideabook
         </a>
     </li>
     </ul>
@@ -674,13 +634,16 @@
                     <g:layoutBody/>
                 </div>
 
-                <div class="footer" role="contentinfo"></div>
+                <div style="text-align: center; background-color: #d6d2cc; text-decoration-color: #7d7264" class="footer" role="contentinfo">
+                   <span >All rights reserved </span>
+                </div>
                 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"></g:message></div>
                 <g:javascript library="application"/>
                 <g:javascript library="application"/>
             </div>
          </div>
     </div>
+
     <r:layoutResources />
 	</body>
 </html>

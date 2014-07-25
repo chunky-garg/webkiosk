@@ -21,9 +21,6 @@
     <script  rel="script"  src="${resource(dir: 'js/plugins/blockui', file: 'jquery.blockUI.js')}" type="text/javascript"></script>
 </head>
 <body>
-<!-- Preloader -->
-<div class="mask"><div id="loader"></div></div>
-<!--/Preloader -->
 
 <!-- Wrap all page content here -->
 <div id="wrap">
@@ -54,7 +51,7 @@
 
 
             <h1 class="error">Error <strong>500</strong></h1>
-            <p class="lead">Naaah, Dear User you does not have permission to access here</p>
+            <p class="lead">Internal Error occurred</p>
 
             <div class="controls">
                 <button class="btn btn-cyan"><i class="fa fa-refresh"></i> Try Again</button>

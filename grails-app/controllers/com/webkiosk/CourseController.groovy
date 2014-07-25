@@ -14,7 +14,12 @@ class CourseController {
             order:1,
             action:'index',
             title: "Courses",
-            isVisible: { springSecurityService.isLoggedIn()}
+            isVisible: { springSecurityService.isLoggedIn()},
+                subItems: [
+                        [action:'newInbox', order:1, title:"Test 1"],
+                        [action:'archive', order:10, title:'Test 2']
+                ]
+
     ]
 
     def index(Integer max) {

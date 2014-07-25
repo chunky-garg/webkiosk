@@ -41,9 +41,9 @@ grails.project.dependency.resolution = {
         grailsCentral()
         mavenCentral()
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
+        mavenRepo "http://repository.codehaus.org"
+        mavenRepo "http://download.java.net/maven/2/"
+        mavenRepo "http://repository.jboss.com/maven2/"
     }
 
     dependencies {
@@ -59,11 +59,14 @@ grails.project.dependency.resolution = {
         ':cache:1.1.1',
         ':csv:0.3',
         ':excel-import:1.0.0',
+        ':export:1.5',
         ':grails-template-engine:0.2.1',
         ':grails-ui:1.2.3',
         ':hibernate:3.6.10.1',
         ':joda-time:1.5',
-        ':navigation:1.1.1',
+        ':jquery-ui:1.10.3',
+        ':navigation:1.3.2',
+//        ':platform-core:1.0.0',
         ':quartz:0.4.2',
         ':rest:0.7',
         ':spring-security-core:1.2.7.3',

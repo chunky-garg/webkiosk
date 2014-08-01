@@ -1,4 +1,4 @@
-<%@ page import="com.webkiosk.batch.Batch; com.webkiosk.batch.Batches; com.webkiosk.Course" %>
+<%@ page import="com.webkiosk.batch.Batch;com.webkiosk.Course" %>
 
 
 

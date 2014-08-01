@@ -9,6 +9,14 @@ class BatchController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    static navigation = [
+            group:'meta',
+            order:4,
+            action:'index',
+            title: "Batch",
+            isVisible: { springSecurityService.isLoggedIn()}
+    ]
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Batch.list(params), model: [batchInstanceCount: Batch.count()]

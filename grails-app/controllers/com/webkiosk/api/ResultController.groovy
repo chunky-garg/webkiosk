@@ -7,7 +7,7 @@ class ResultController extends  com.webkiosk.Error{
 
     static navigation = [
 
-                group:'faculty',
+                group:'nav.faculty',
                 order:1,
                 action:'index',
                 title: "Results",

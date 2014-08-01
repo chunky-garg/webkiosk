@@ -15,7 +15,8 @@ class ResultController extends  com.webkiosk.Error{
     ]
 
     static allowedMethods = [fileUpload: 'POST']
-    def index() {}
+
+    def exportService
 
     def view = {
 
@@ -25,12 +26,18 @@ class ResultController extends  com.webkiosk.Error{
 
     def upload = {
         println("view upload file")
-        respond([:])
+        render (view:'upload', model: [userInstance:request.user, examList:Exam.list()])
     }
 
     def fileUpload = {
         print("Uploading file")
         render (view: 'upload', controllerName:'result',model: [userInstance:request.user, exams: Exam.list()])
 //        respond([:])
+    }
+
+    def download = {
+
+        exportService.downloadResults(response)
+        render (view: 'upload', controllerName:'result',model: [userInstance:request.user, exams: Exam.list()])
     }
 }

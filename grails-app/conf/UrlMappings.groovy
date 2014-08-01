@@ -18,5 +18,9 @@ class UrlMappings {
 //            action=[POST:'uploadFile']
 //        }
 
+        "/api/result/download"(controller: 'result') {
+            action=[GET:'download']
+        }
+
 	}
 }

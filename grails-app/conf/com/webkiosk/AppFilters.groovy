@@ -15,18 +15,19 @@ class AppFilters {
                 //TODO check for login controller
                 def user = springSecurityService.principal
 
-                if((user instanceof String) && !actionName.equals('auth') && !controllerName.equals('login')) {
-                    redirect(controller: 'login', action:'auth')
-                    return false
-                }
-
-                String username = springSecurityService.principal.getUsername()
-                if(username) {
-                 user = User.findByUsername(username)
-                    request.user = user
+                if(user instanceof String) {
+                    if (!actionName.equals('auth') && !controllerName.equals('login')) {
+                        redirect(controller: 'login', action: 'auth')
+                        return false
+                    }
                 } else {
-
+                    String username = springSecurityService.principal.getUsername()
+                    if (username) {
+                        user = User.findByUsername(username)
+                        request.user = user
+                    }
                 }
+
             }
             after = { Map model ->
                 if(model) {

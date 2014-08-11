@@ -629,10 +629,21 @@
     <!-- /submenu -->
 
 
-                <div class="main">
+    <div class="main">
+        <g:if test="${flash.message}">
+            <g:if test = "${flash.status == 'ERROR'}">
+                <div class="alert alert-red">
+            </g:if>
+            <g:else>
+                <div class="alert alert-success">
+            </g:else>
 
-                    <g:layoutBody/>
-                </div>
+            ${flash.message}
+            </div>
+        </g:if>
+
+        <g:layoutBody/>
+    </div>
 
                 <div style="text-align: center; background-color: #d6d2cc; text-decoration-color: #7d7264" class="footer" role="contentinfo">
                    <span >All rights reserved </span>

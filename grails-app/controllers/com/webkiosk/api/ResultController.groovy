@@ -2,6 +2,7 @@ package com.webkiosk.api
 
 import com.webkiosk.batch.Section
 import com.webkiosk.exam.Exam
+import com.webkiosk.exam.Marks
 
 class ResultController extends  com.webkiosk.Error{
 
@@ -18,10 +19,11 @@ class ResultController extends  com.webkiosk.Error{
 
     def exportService
 
+
     def view = {
 
         println("view")
-        respond([:])
+        render( view:'view', model:[marksList:Marks.list()])
     }
 
     def upload = {
@@ -31,7 +33,9 @@ class ResultController extends  com.webkiosk.Error{
 
     def fileUpload = {
         print("Uploading file")
-        render (view: 'upload', controllerName:'result',model: [userInstance:request.user, exams: Exam.list()])
+        flash.message = "Error in uploading file"
+        flash.status = "ERROR"
+        render (view: 'upload', controllerName:'result',model: [userInstance:request.user, examList: Exam.list()])
 //        respond([:])
     }
 

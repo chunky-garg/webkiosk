@@ -1,18 +1,25 @@
 package com.webkiosk.exam
 
-import com.webkiosk.Course
+import com.webkiosk.batch.BatchCourse
 
 class Exam {
 
-    String examType
+    ExamType examType
 
     double maxMarks
     double passMarks
 
+    QuestionPaper questionPaper
+
     static belongsTo = [
-            course:Course
+            batchCourse:BatchCourse
     ]
 
     static constraints = {
+        questionPaper nullable: true
+    }
+
+    public String toString() {
+        examType.name + " : "  +batchCourse
     }
 }

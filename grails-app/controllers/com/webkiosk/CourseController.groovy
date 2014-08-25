@@ -1,5 +1,6 @@
 package com.webkiosk
 
+import com.webkiosk.course.Course
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional

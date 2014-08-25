@@ -1,5 +1,6 @@
-package com.webkiosk
+package com.webkiosk.course
 
+import com.webkiosk.course.Subject
 import com.webkiosk.user.Faculty
 
 class FacultySubject {

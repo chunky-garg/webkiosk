@@ -324,20 +324,6 @@
 
                 <ul class="dropdown-menu arrow">
 
-                    <li>
-                        <h3>Color schemes:</h3>
-                        <ul id="color-schemes">
-                            <li><a href="#" class="brownish-scheme" title="Brownish"></a></li>
-                            <li><a href="#" class="darkgrey-scheme" title="Dark Grey"></a></li>
-                            <li><a href="#" class="lightgrey-scheme" title="Light Grey"></a></li>
-                            <li><a href="#" class="cyan-scheme" title="Cyan"></a></li>
-                            <li><a href="#" class="red-scheme" title="Red"></a></li>
-                            <li><a href="#" class="orange-scheme" title="Orange"></a></li>
-                            <li><a href="#" class="green-scheme" title="Green"></a></li>
-                            <li><a href="#" class="amethyst-scheme" title="Amethyst"></a></li>
-                        </ul>
-                    </li>
-
                     <li class="divider"></li>
 
                     <li>

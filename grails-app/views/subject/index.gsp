@@ -31,6 +31,10 @@
 					
 						<g:sortableColumn property="code" title="${message(code: 'subject.code.label', default: 'Code')}" class="sort-alpha" />
 					
+						<th><g:message code="subject.department.label" default="Department" class="no-sort"/></th>
+					
+						<th><g:message code="subject.school.label" default="School" class="no-sort"/></th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -40,6 +44,10 @@
 						<td><g:link action="show" id="${subjectInstance.id}">${fieldValue(bean: subjectInstance, field: "name")}</g:link></td>
 					
 						<td>${fieldValue(bean: subjectInstance, field: "code")}</td>
+					
+						<td>${fieldValue(bean: subjectInstance, field: "department")}</td>
+					
+						<td>${fieldValue(bean: subjectInstance, field: "school")}</td>
 					
 					</tr>
 				</g:each>

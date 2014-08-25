@@ -1,6 +1,9 @@
 package com.webkiosk.security
 
+import com.webkiosk.School
 import com.webkiosk.com.webkiosk.address.Address
+import com.webkiosk.user.UserCategory
+import com.webkiosk.user.UserProfile
 import grails.util.Holders
 
 class User {
@@ -24,8 +27,13 @@ class User {
     Date dob
 
     String tzDpPath
-    String category
 
+    UserProfile profile
+
+    static belongsTo = [
+            school:School,
+            category:UserCategory
+    ]
     static constraints = {
         username blank: false, unique: true
         password blank: false
@@ -34,7 +42,9 @@ class User {
         doj nullable: true
         phone nullable: true
         dpName nullable: true
-        category nullable:true ,inList:['STUDENT', 'FACULTY', 'MANAGEMENT', 'SYSTEM']
+        school nullable: true
+        profile nullable: true
+
     }
 
     static mapping = {

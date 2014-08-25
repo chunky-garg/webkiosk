@@ -1,5 +1,6 @@
 package com.webkiosk
 
+import com.webkiosk.course.Course
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 

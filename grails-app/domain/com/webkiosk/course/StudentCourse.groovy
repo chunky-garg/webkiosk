@@ -1,4 +1,4 @@
-package com.webkiosk
+package com.webkiosk.course
 
 import com.webkiosk.user.Student
 

@@ -3,6 +3,7 @@ package com.webkiosk.api
 import com.webkiosk.batch.Section
 import com.webkiosk.exam.Exam
 import com.webkiosk.exam.Marks
+import com.webkiosk.security.User
 
 class ResultController extends  com.webkiosk.Error{
 
@@ -18,6 +19,7 @@ class ResultController extends  com.webkiosk.Error{
     static allowedMethods = [fileUpload: 'POST']
 
     def exportService
+    def examService
 
 
     def view = {
@@ -28,20 +30,22 @@ class ResultController extends  com.webkiosk.Error{
 
     def upload = {
         println("view upload file")
-        render (view:'upload', model: [userInstance:request.user, examList:Exam.list()])
+        User user = request.user
+        render (view:'upload', model: [userInstance:user, examList:examService.getAllExamination()])
     }
 
     def fileUpload = {
         print("Uploading file")
+        User user = request.user
         flash.message = "Error in uploading file"
         flash.status = "ERROR"
-        render (view: 'upload', controllerName:'result',model: [userInstance:request.user, examList: Exam.list()])
+        render (view: 'upload', controllerName:'result',model: [userInstance:user, examList:examService.getAllExamination(user.school)])
 //        respond([:])
     }
 
     def download = {
-
+        User user = request.user
         exportService.downloadResults(response)
-        render (view: 'upload', controllerName:'result',model: [userInstance:request.user, exams: Exam.list()])
+        render (view: 'upload', controllerName:'result',model: [userInstance:user, examList:examService.getAllExamination(user.school)])
     }
 }

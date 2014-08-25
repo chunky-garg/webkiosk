@@ -1,5 +1,5 @@
 
-<%@ page import="com.webkiosk.Course" %>
+<%@ page import="com.webkiosk.course.Course" %>
 <!DOCTYPE html>
 <html>
 	<head>

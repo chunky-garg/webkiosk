@@ -1,6 +1,6 @@
 package com.webkiosk
 
-
+import com.webkiosk.course.Course
 import grails.test.mixin.*
 import spock.lang.*
 

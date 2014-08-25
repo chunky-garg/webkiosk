@@ -22,6 +22,8 @@ class Error {
 //
 //        }
 
+        render (view:("/error/error"))
+
     }
 
 //    def error(NoAccessException e) {

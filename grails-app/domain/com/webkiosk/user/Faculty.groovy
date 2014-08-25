@@ -1,7 +1,7 @@
 package com.webkiosk.user
 
-import com.webkiosk.Course
-import com.webkiosk.Subject
+import com.webkiosk.course.Course
+import com.webkiosk.course.Subject
 import com.webkiosk.security.User
 
 class Faculty {

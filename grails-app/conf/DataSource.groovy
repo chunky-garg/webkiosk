@@ -1,4 +1,5 @@
 dataSource {
+    configClass = 'TablePerSubclassConfiguration'
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
     username = "root"

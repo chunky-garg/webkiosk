@@ -1,16 +1,14 @@
 package com.webkiosk.batch
 
-import com.webkiosk.Course
-
 class Batch {
 
     String name
-    String year
+    AcademicYear year
     Standard standard
     Section section
 
     static hasMany = [
-        courses:Course
+        batchCourses:BatchCourse
     ]
     static constraints = {
     }

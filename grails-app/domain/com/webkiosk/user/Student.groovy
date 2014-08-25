@@ -1,12 +1,13 @@
 package com.webkiosk.user
 
-import com.webkiosk.StudentCourse
-import com.webkiosk.com.webkiosk.address.Address
+import com.webkiosk.course.StudentCourse
+import com.webkiosk.batch.Standard
 import com.webkiosk.security.User
 
 class Student {
 
     Date passingDate
+    Standard currentStandard
 
     static belongsTo =[
         user:User
@@ -19,5 +20,10 @@ class Student {
 
     static constraints = {
         passingDate nullable: true
+        currentStandard nullable: true
+    }
+
+    public String toString() {
+        user.firstName + " " + user.lastName
     }
 }

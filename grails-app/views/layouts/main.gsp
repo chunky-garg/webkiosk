@@ -453,9 +453,9 @@
                 </a>
             </li>
             <li>
-                <a href="typography.html" title="Typography">
+                <a href="typography.html" title="Datesheet">
                     <i class="fa fa-font"><span class="overlay-label amethyst60"></span></i>
-                    Typography
+                    Datesheet
                 </a>
             </li>
             <li>
@@ -466,13 +466,11 @@
             </li>
         </ul>
     </li>
-    <li>
-        <a href="buttons.html" title="Buttons & Icons">
-            <i class="fa fa-calendar">
-                <span class="overlay-label orange"></span>
-            </i>
+    <li  class="${controllerName == 'calendar'?'active':''}">
+        <g:link title="Calendar" controller="calendar" action="index">
+            <i class="fa fa-calendar"><span class="overlay-label orange"></span></i>
             Calendar
-        </a>
+        </g:link>
     </li>
 
     <li>
@@ -623,6 +621,14 @@
                     <g:link controller="${item.controller}" action="${item.action}"><g:message code="${item.title}"/></g:link>
                 </li>
             </nav:eachItem>
+            </sec:ifAllGranted>
+
+            <sec:ifAllGranted roles="ROLE_SUPER_ADMIN">
+                <nav:eachItem group="admin" var="item">
+                    <li  class="${item.active ? 'active' : ''}">
+                        <g:link controller="${item.controller}" action="${item.action}"><g:message code="${item.title}"/></g:link>
+                    </li>
+                </nav:eachItem>
             </sec:ifAllGranted>
         </ul>
     </div>

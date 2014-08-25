@@ -41,6 +41,24 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${subjectInstance?.department}">
+				<li class="fieldcontain">
+					<span id="department-label" class="property-label"><g:message code="subject.department.label" default="Department" /></span>
+					
+						<span class="property-value" aria-labelledby="department-label"><g:link controller="department" action="show" id="${subjectInstance?.department?.id}">${subjectInstance?.department?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${subjectInstance?.school}">
+				<li class="fieldcontain">
+					<span id="school-label" class="property-label"><g:message code="subject.school.label" default="School" /></span>
+					
+						<span class="property-value" aria-labelledby="school-label"><g:link controller="school" action="show" id="${subjectInstance?.school?.id}">${subjectInstance?.school?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:subjectInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

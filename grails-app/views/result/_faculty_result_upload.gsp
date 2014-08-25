@@ -13,6 +13,7 @@
     <script src="../js/plugins/chosen/chosen.jquery.min.js"></script>
 </head>
 
+
 <div class="col-md-6" xmlns="http://www.w3.org/1999/html">
 <section class="tile">
     <!-- Upload result Tile -->
@@ -53,8 +54,8 @@
         <form role="form">
         <div class="form-group">
             <label for="chosen">Select Examination </label>
-            <g:select name="exam" data-placeholder="Select Examination..." tabindex="3" class="chosen-select form-control" id="chosen" from="${examList}" optionValue="examType"
-                      optionKey="id" />
+            <g:select name="exam" data-placeholder="Select Examination..." tabindex="3" class="chosen-select form-control" id="chosen" from="${examList}"
+                      optionKey="id" optionValue="toString()" />
         </div>
         </form>
 

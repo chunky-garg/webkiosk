@@ -110,6 +110,13 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/course/**' :              ['IS_AUTHENTICATED_FULLY'],
         '/subject/**' :             ['IS_AUTHENTICATED_FULLY'],
         '/result/**' :              ['IS_AUTHENTICATED_FULLY'],
+        '/user/**' :                ['IS_AUTHENTICATED_FULLY'],
+        '/school/**' :              ['IS_AUTHENTICATED_FULLY'],
+        '/department/**' :          ['IS_AUTHENTICATED_FULLY'],
+        '/examtype/**' :            ['IS_AUTHENTICATED_FULLY'],
+        '/calendar/**' :            ['IS_AUTHENTICATED_FULLY'],
+        '/holiday/**' :             ['IS_AUTHENTICATED_FULLY'],
+
 
 
 ]

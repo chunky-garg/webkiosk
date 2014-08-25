@@ -6,6 +6,7 @@ import com.webkiosk.security.User
 import com.webkiosk.security.UserRole
 import com.webkiosk.user.Faculty
 import com.webkiosk.user.Student
+import com.webkiosk.user.UserCategory
 import grails.transaction.Transactional
 import groovy.sql.Sql
 import org.apache.commons.logging.LogFactory
@@ -30,6 +31,21 @@ class DataMigrationService {
 
         //creating role groups
 
+        UserCategory studentCat = new UserCategory(name:'STUDENT')
+        studentCat.save()
+
+        UserCategory facultyCat = new UserCategory(name:'FACULTY')
+        facultyCat.save()
+
+        UserCategory managementCat = new UserCategory(name:'MANAGEMENT')
+        managementCat.save()
+
+        UserCategory adminCat = new UserCategory(name:'ADMIN')
+        adminCat.save()
+
+        UserCategory systemCat = new UserCategory(name:'SYSTEM')
+        systemCat.save()
+
         RoleGroup student = new RoleGroup(name:"STUDENT")
         student.save()
 
@@ -42,6 +58,9 @@ class DataMigrationService {
         RoleGroup admin = new RoleGroup(name:"ADMIN")
         admin.save()
 
+        RoleGroup system = new RoleGroup(name:"SYSTEM")
+        admin.save()
+
 
         Map<String, RoleGroup> authorityList = [
                 "ROLE_STUDENT_USER":student,
@@ -52,6 +71,7 @@ class DataMigrationService {
                 "ROLE_ADMIN_USER":mgmnt,
                 "ROLE_ADMIN_MASTER":mgmnt,
                 "ROLE_ADMIN_PRINCIPAL":mgmnt,
+                "ROLE_SCHOOL_ADMIN":mgmnt,
                 "ROLE_SUPER_ADMIN":admin
         ]
 
@@ -63,30 +83,37 @@ class DataMigrationService {
         logr.info("Role added successfully")
 
         // Add roles for user
+
+        Role sysAdminRole = Role.findByAuthority("ROLE_SUPER_ADMIN")
+        User u0 = new User(username:'sysadmin', password:springSecurityService.passwordEncoder.encodePassword('test',null),
+                firstName:'System', lastName:'Admin', enabled:true,
+                category: systemCat).save(failOnError: true)
+
         Role adminRole = Role.findByAuthority("ROLE_ADMIN_PRINCIPAL")
         User u1 = new User(username:'manager', password:springSecurityService.passwordEncoder.encodePassword('test',null),
                            firstName:'Management', lastName:'Admin', enabled:true,
-                           category: 'MANAGEMENT').save(failOnError: true)
+                           category: managementCat).save(failOnError: true)
 
         Role facultyRole = Role.findByAuthority("ROLE_FACULTY_ADMIN")
         User u2 = new User(username:'faculty', password:springSecurityService.encodePassword('test'),
                            firstName:'Faculty', lastName:'Admin', enabled:true,
-                            category: 'FACULTY').save(failOnError: true)
+                            category: facultyCat).save(failOnError: true)
 
         Role studentRole = Role.findByAuthority("ROLE_STUDENT_ADMIN")
         User u3 = new User(username:'student', password:springSecurityService.encodePassword('test'),
                            firstName:'Student', lastName:'Admin', enabled:true,
-                           category: 'STUDENT').save(failOnError: true)
+                           category: studentCat).save(failOnError: true)
 
-        Role systemRole = Role.findByAuthority("ROLE_SUPER_ADMIN")
+        Role schoolAdminRole = Role.findByAuthority("ROLE_SCHOOL_ADMIN")
         User u4 = new User(username:'admin', password:springSecurityService.encodePassword('test'),
-                firstName:'System', lastName:'Admin', enabled:true,
-                category: 'SYSTEM').save(failOnError: true)
+                firstName:'SCHOOL', lastName:'Admin', enabled:true,
+                category: adminCat).save(failOnError: true)
 
+        UserRole.create(u0,sysAdminRole );
         UserRole.create(u1,adminRole );
         UserRole.create(u2,facultyRole );
         UserRole.create(u3,studentRole );
-        UserRole.create(u4,systemRole );
+        UserRole.create(u4,schoolAdminRole );
 
         Student stu = new Student(user: u3).save(failOnError: true)
         Faculty fac = new Faculty(user: u2).save(failOnError: true)

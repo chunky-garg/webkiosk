@@ -1,14 +1,18 @@
-package com.webkiosk
+package com.webkiosk.course
 
 import com.webkiosk.user.Faculty
 
 class FacultyCourse {
 
     static belongsTo = [
-           faculty:Faculty,
+            faculty:Faculty,
             course:Course
     ]
 
     static constraints = {
+    }
+
+    public String toString() {
+        course +", Faculty : " + faculty
     }
 }

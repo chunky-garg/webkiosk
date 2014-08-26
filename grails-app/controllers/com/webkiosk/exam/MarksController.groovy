@@ -17,6 +17,8 @@ class MarksController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def scaffold = true
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Marks.list(params), model: [marksInstanceCount: Marks.count()]

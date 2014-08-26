@@ -11,6 +11,10 @@ class CourseContent {
             course:Course
     ]
 
+    static hasMany = [
+            chapters:Chapter
+    ]
+
     static constraints = {
     }
 }

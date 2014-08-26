@@ -1,6 +1,5 @@
-package com.webkiosk
+package com.webkiosk.course
 
-import com.webkiosk.course.Subject
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -9,14 +8,6 @@ import grails.transaction.Transactional
 class SubjectController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    static navigation = [
-            group:'faculty',
-            order:4,
-            action:'index',
-            title: "Subjects",
-            isVisible: { springSecurityService.isLoggedIn()}
-    ]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

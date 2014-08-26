@@ -5,7 +5,7 @@ class Batch {
     String name
     AcademicYear year
     Standard standard
-    Section section
+    ClassSection section
 
     static hasMany = [
         batchCourses:BatchCourse

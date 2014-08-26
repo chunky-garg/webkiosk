@@ -2,7 +2,7 @@ package com.webkiosk.batch
 
 import com.webkiosk.School
 
-class Section {
+class ClassSection {
 
     String name
 

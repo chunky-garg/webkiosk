@@ -581,10 +581,6 @@
     </ul>
     <!-- Sidebar end -->
 
-
-
-
-
     </div>
     <!--/.nav-collapse -->
     </div>
@@ -624,6 +620,14 @@
             </sec:ifAllGranted>
 
             <sec:ifAllGranted roles="ROLE_SUPER_ADMIN">
+                <nav:eachItem group="system" var="item">
+                    <li  class="${item.active ? 'active' : ''}">
+                        <g:link controller="${item.controller}" action="${item.action}"><g:message code="${item.title}"/></g:link>
+                    </li>
+                </nav:eachItem>
+            </sec:ifAllGranted>
+
+            <sec:ifAllGranted roles="ROLE_SCHOOL_ADMIN">
                 <nav:eachItem group="admin" var="item">
                     <li  class="${item.active ? 'active' : ''}">
                         <g:link controller="${item.controller}" action="${item.action}"><g:message code="${item.title}"/></g:link>

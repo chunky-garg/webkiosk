@@ -8,7 +8,16 @@ class AffiliationBoardController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def scaffold = true 
+    def scaffold = true
+
+    static navigation = [
+
+            group:'system',
+            order:5,
+            action:'index',
+            title: "Affiliation Board",
+            isVisible: { springSecurityService.isLoggedIn()}
+    ]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

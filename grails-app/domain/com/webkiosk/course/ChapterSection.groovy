@@ -3,9 +3,13 @@ package com.webkiosk.course
 class ChapterSection {
 
     String name;
-    Double order
+    Double number
 
     ChapterSection parentSection
+
+    static belongsTo = [
+            chapter:Chapter
+    ]
 
     static constraints = {
         parentSection nullable: true

@@ -101,24 +101,24 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/logout/**':    			['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/api/**':                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
         '/admin/**':                ['IS_AUTHENTICATED_ANONYMOUSLY'],
-        '/dashboard/**' :           ['IS_AUTHENTICATED_FULLY'],
+
+        '/academicyear/**' :        ['IS_AUTHENTICATED_FULLY'],
+        '/affiliationboard/**' :    ['IS_AUTHENTICATED_FULLY'],
         '/batch/**' :               ['IS_AUTHENTICATED_FULLY'],
-        '/standard/**' :            ['IS_AUTHENTICATED_FULLY'],
-        '/section/**' :             ['IS_AUTHENTICATED_FULLY'],
-        '/exam/**' :                ['IS_AUTHENTICATED_FULLY'],
-        '/marks/**' :               ['IS_AUTHENTICATED_FULLY'],
-        '/course/**' :              ['IS_AUTHENTICATED_FULLY'],
-        '/subject/**' :             ['IS_AUTHENTICATED_FULLY'],
-        '/result/**' :              ['IS_AUTHENTICATED_FULLY'],
-        '/user/**' :                ['IS_AUTHENTICATED_FULLY'],
-        '/school/**' :              ['IS_AUTHENTICATED_FULLY'],
-        '/department/**' :          ['IS_AUTHENTICATED_FULLY'],
-        '/examtype/**' :            ['IS_AUTHENTICATED_FULLY'],
         '/calendar/**' :            ['IS_AUTHENTICATED_FULLY'],
+        '/course/**' :              ['IS_AUTHENTICATED_FULLY'],
+        '/dashboard/**' :           ['IS_AUTHENTICATED_FULLY'],
+        '/department/**' :          ['IS_AUTHENTICATED_FULLY'],
+        '/exam/**' :                ['IS_AUTHENTICATED_FULLY'],
+        '/examtype/**' :            ['IS_AUTHENTICATED_FULLY'],
         '/holiday/**' :             ['IS_AUTHENTICATED_FULLY'],
-
-
-
+        '/marks/**' :               ['IS_AUTHENTICATED_FULLY'],
+        '/result/**' :              ['IS_AUTHENTICATED_FULLY'],
+        '/school/**' :              ['IS_AUTHENTICATED_FULLY'],
+        '/section/**' :             ['IS_AUTHENTICATED_FULLY'],
+        '/standard/**' :            ['IS_AUTHENTICATED_FULLY'],
+        '/subject/**' :             ['IS_AUTHENTICATED_FULLY'],
+        '/user/**' :                ['IS_AUTHENTICATED_FULLY'],
 ]
 
 environments {
